@@ -1,5 +1,5 @@
 server:
-  port: 12000
+  port: ${serverPort:12000}
 spring:
   application:
     name: tensquare-config
@@ -7,9 +7,12 @@ spring:
     config:
       server:
         git:
-          uri: https://github.com/cathubhome/tensquare-server-config.git
+          uri: ${configServerGitUri:https://github.com/cathubhome/tensquare-server-config.git}
   rabbitmq:
-    host: 192.168.17.18
+    host: ${rabbitmqHost:192.168.17.18}
+    port: ${rabbitmqPort:5672}
+    username: ${rabbitmqUsername:admin}
+    password: ${rabbitmqPassword:cathome}
 
 #暴露触发消息总线的地址
 management:
